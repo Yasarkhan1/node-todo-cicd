@@ -28,7 +28,7 @@ describe( "Test1", () => {
 
 describe("Test2", () => {
 	beforeEach(() => {
-	console.log( "executes before every test" );
+	console.log( "executes before every test.." );
 	});
 	
 	it("Is returning 4 when adding 2 + 3", () => {
