@@ -29,6 +29,7 @@ app.get('/todo', function (req, res) {
             todolist,
             clickHandler: "func1();"
         });
+    
     })
 
     /* Adding an item to the to do list */
