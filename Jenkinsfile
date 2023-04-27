@@ -20,6 +20,7 @@ pipeline {
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
                     sh "docker push 3737373737/node-todo-app-cicd:latest"
 
+
                 }
             }
         }
