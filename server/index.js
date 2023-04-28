@@ -36,39 +36,39 @@ require('./config/passport')(passport);
 app.use(routes);
 
 // if development
-if (process.env.NODE_ENV !== 'production') {
-  const compiler = webpack(webpackConfig);
+// if (process.env.NODE_ENV !== 'production') {
+//   const compiler = webpack(webpackConfig);
 
-  app.use(
-    historyApiFallback({
-      verbose: false
-    })
-  );
+//   app.use(
+//     historyApiFallback({
+//       verbose: false
+//     })
+//   );
 
-  app.use(
-    webpackMiddleware(compiler, {
-      publicPath: webpackConfig.output.publicPath,
-      contentBase: path.resolve(__dirname, '../client/public'),
-      stats: {
-        colors: true,
-        hash: false,
-        timings: true,
-        chunks: false,
-        chunkModules: false,
-        modules: false
-      }
-    })
-  );
+//   app.use(
+//     webpackMiddleware(compiler, {
+//       publicPath: webpackConfig.output.publicPath,
+//       contentBase: path.resolve(__dirname, '../client/public'),
+//       stats: {
+//         colors: true,
+//         hash: false,
+//         timings: true,
+//         chunks: false,
+//         chunkModules: false,
+//         modules: false
+//       }
+//     })
+//   );
 
-  app.use(webpackHotMiddleware(compiler));
-  app.use(express.static(path.resolve(__dirname, '../dist')));
-} else {
-  app.use(compression());
-  app.use(express.static(path.resolve(__dirname, '../dist')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../dist/index.html'));
-  });
-}
+//   app.use(webpackHotMiddleware(compiler));
+//   app.use(express.static(path.resolve(__dirname, '../dist')));
+// } else {
+//   app.use(compression());
+//   app.use(express.static(path.resolve(__dirname, '../dist')));
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, '../dist/index.html'));
+//   });
+// }
 
 app.listen(PORT, () => {
   console.log(
